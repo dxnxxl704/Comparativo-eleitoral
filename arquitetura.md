@@ -3,16 +3,16 @@
 ## Componentes reais
 
 ```text
-Navegador ──(HTML/CSS/JS puro)──> static/index.html
+Navegador ──(HTML/CSS/JS Vanilla, taliwind puro)──> static/index.html
     │
     └── fetch /api/v1/* ──> main.go (net/http, Go 1.22)
                               ├── catálogo fictício em memória
-                              ├── Etapa 1: funil (3 filtros)
-                              └── Etapa 2: pontuação (2 critérios)
+                              ├── Etapa 1: funil (3 filtros, se o partido não é neoliberal, proíbe aborto e incentiva/respeita o cristianismo)
+                              └── Etapa 2: pontuação (2 critérios, qualidade e validação das teses e argumentos do candidato, verificar se é coerente com o perfil e história do candidato)
 ```
 
 - **Backend:** um único arquivo, `main.go`, só com a biblioteca padrão. Sem banco, sem autenticação, sem serviços externos.
-- **Frontend:** `static/index.html`, servido pelo próprio backend.
+- **Frontend:** `static/index.html`, servido pelo próprio backend, Insomnia.
 - **Sem Google Cloud Storage, Google Search API ou concorrência.** Versões anteriores da documentação citavam esses itens, mas eles nunca existiram no código.
 
 ## Frontend e contrato da API: pendência
