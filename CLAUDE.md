@@ -20,6 +20,9 @@ Criar uma plataforma de consulta e análise eleitoral que permita:
 - Registrar observações e teses.
 - Comparar posicionamentos políticos.
 - Facilitar uma análise estruturada e auditável.
+- O usuário pode escolher o cargo e o candidato pré-estabelecido pelo sistema.
+- Apresentar condições pré-definidas antes dos resultados dos cards
+- Apresentar resultados em cards políticos, descrevendo afinidade do candidato em relação ao Dr. Enéas (>=95%) e avaliação com base nos critérios
 
 ---
 
