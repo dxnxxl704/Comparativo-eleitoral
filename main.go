@@ -409,17 +409,17 @@ func newRouter() http.Handler {
 	sourceStore := NewSourceStore()
 	mux := http.NewServeMux()
 
+	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/" {
-			http.NotFound(w, r)
-			return
-		}
 		if r.Method != http.MethodGet {
 			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 			return
 		}
-		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		_, _ = w.Write([]byte("<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\"><title>Comparativo Eleitoral</title><style>body{font-family:Arial,sans-serif;margin:2rem;background:#f3f4f6;color:#111827}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}.card{background:white;border-radius:12px;padding:1rem;box-shadow:0 4px 12px rgba(0,0,0,.08)}h1{margin-bottom:0}.small{color:#6b7280;font-size:.9rem}.metric{font-size:2rem;font-weight:700}</style></head><body><h1>Comparativo Eleitoral</h1><div class=\"small\">Dashboard de relatórios e métricas de coerência</div><div id=\"dashboard\" class=\"grid\"></div><script>async function load(){var res=await fetch('/api/dashboard');var data=await res.json();var el=document.getElementById('dashboard');var cards=[['Candidatos', data.total_candidates],['Avaliações', data.total_evaluations],['Fontes', data.total_sources],['Coerência média', data.average_coherence.toFixed(1)+'%']];var html='';for(var i=0;i<cards.length;i++){html += '<div class=\"card\"><div class=\"small\">'+cards[i][0]+'</div><div class=\"metric\">'+cards[i][1]+'</div></div>';}el.innerHTML=html;}load();</script></body></html>"))
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		http.ServeFile(w, r, "./static/index.html")
 	})
 
 	listCandidates := func(w http.ResponseWriter, r *http.Request) {

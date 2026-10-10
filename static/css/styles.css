@@ -1,0 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, "Segoe UI", sans-serif;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, #f8fbff 0%, #edf6ff 100%);
+  border: 1px solid #dbeafe;
+}
+
+.candidate-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.candidate-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.08);
+}
+
+.report-card {
+  border: 1px solid #e2e8f0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.score-badge {
+  min-width: 84px;
+  text-align: center;
+}
